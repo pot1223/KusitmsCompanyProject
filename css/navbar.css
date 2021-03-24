@@ -1,0 +1,64 @@
+body{
+    margin:0;
+    padding: 0;
+}
+
+.navbar_body{
+    position: fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    box-sizing: border-box;
+    transition: top .6s;
+    background: rgba(0 ,0 ,0 ,0.6);
+    padding: 10px;
+    overflow: hidden;
+    height: 6rem;
+    border:2rem;
+}
+.menu-wrapper{
+
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.navbar_menu {
+    overflow: hidden;
+    list-style: none;
+}
+
+.navbar_menu li {
+    float: left;
+    margin-left: 16px;
+}
+
+.navbar_menu li a{
+    color:#fff;
+    text-decoration: none;
+    font-family: Roboto;
+    font-size:16px;
+    font-weight: bold;
+}
+
+.navbar_body.animate{
+    top:-71px;
+}
+.navbar_body.sticky{
+    top:0;
+    z-index: 99;
+}
+
+#logo {
+    position: absolute;
+    top: 50%;
+    left:0%;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: inline-block;
+    height: 3em;
+    width: 10em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("요즘것들logo.png");
+}
+
