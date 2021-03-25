@@ -1,1 +1,12 @@
-.body{background-color: chartreuse;margin-top: 5rem;margin-bottom:5rem;height:20rem}
+
+.body{background:linear-gradient(
+    147deg,#ff3469 25%,#ffaa71 100%);color: white;margin-top: 5rem;margin-bottom:5rem;height:20rem}
+
+
+.chat-ratio-title, .skills-title{
+    color:grey;
+    text-decoration: none;
+    font-family: 'Sen',sans-serif;
+    font-size:20px;
+}
+

@@ -68,14 +68,14 @@ body {
 
 #prev.disabled, #next.disabled { display:none;}
 
-#prev { background-image: url('arrow-left-out.svg'); margin-left:-480px;}
+#prev { background-image: url('../html/arrow-left-out.svg'); margin-left:-480px;}
 
-#prev:hover { background-image: url('arrow-left-over.svg'); }
+#prev:hover { background-image: url('../html/arrow-left-over.svg');}
 
 #next {
-    margin-left:380px;
-    background-image: url('arrow-right-out.svg');
+    margin-left:430px;
+    background-image: url('../html/arrow-right-out.svg');
 
 }
 
-#next:hover { background-image: url('arrow-right-over.svg'); }
+#next:hover { background-image: url('../html/arrow-right-over.svg'); }
