@@ -76,17 +76,6 @@ startAutoSlide();
 function startAutoSlide() {
 timer = setInterval(function () {
      nextIndex = (currentIndex + 1)%slideCount;
-    goToSlide(nextIndex);
+     goToSlide(nextIndex);
 }, 4000);
 }
-
-function stopAutoSlide(){
-clearInterval(timer);
-}
-
-slideWrapper.addEventListener('mouseenter',function (){
-stopAutoSlide();
-console.log(timer);});
-slideWrapper.addEventListener('mouseleave',function (){
-startAutoSlide();
-console.log(timer);});
