@@ -23,7 +23,7 @@
 }
 .skills, .pos,.chat-ratio{
     padding-top:20px;
-    background-image: linear-gradient(to top, rgb(230, 230, 230) 0%, rgb(255,255,250) 100%);
+    background-image: linear-gradient(to top, rgb(230, 230, 220) 0%, rgb(255,255,250) 100%);
  }
 .chat-ratio-title, .skills-title{
     color:grey;
