@@ -3,10 +3,10 @@ import pandas as pd
 from pandas import DataFrame
 import re
 import datetime as dt
-
-import re
-import pandas as pd
-import datetime as dt
+import json
+import glob
+from sklearn.preprocessing import StandardScaler
+from scipy.stats import norm
 
 def read_kko_msg(filename):
     with open(filename, encoding='utf-8') as f:
@@ -50,24 +50,34 @@ def extract_period(df) :
     end = df.iloc[-1]['Date']
     print("Start :", start)
     print("End :", end)
-    return start, end
-
+    start = start.strftime('%Y-%m-%d')
+    end = end.strftime('%Y-%m-%d')
+    date_data = {
+        "start": start,
+        "end": end
+    }
+    with open('extract_period_func.json', 'w', encoding='utf-8') as file:
+        return json.dump(date_data, file)
+    
 def participant_show(df):
     df = df['User'].value_counts(dropna=True, sort=True)
     df = pd.DataFrame(df)
     df = df.reset_index()
     df.columns = ['User', 'Chat_counts']
     print(df['User'])
-    return df['User']
+    df_f=df['User']
+    with open('participant_show_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
 
 def chat_counts(df) :
     df = df['User'].value_counts(dropna=True, sort=True)
     df = pd.DataFrame(df)
     df = df.reset_index()
     df.columns = ['User', 'Chat_counts']
-    for i in range (len(df)) :
-        print ('User Name :',df.iloc[i]['User'], ', Chat counts :',
-               df.iloc[i]['Chat_counts'])
+    df_f=df
+    with open('chat_counts_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
+
 
 def count_send_question(df):
     df = df[df['Message'].str.contains('\?')]
@@ -75,9 +85,9 @@ def count_send_question(df):
     df = pd.DataFrame(df)
     df = df.reset_index()
     df.columns = ['User', 'count_send_question']
-    for i in range (len(df)) :
-        print ('User Name :',df.iloc[i]['User'], ', Question send counts :',
-               df.iloc[i]['count_send_question'])
+    df_f=df
+    with open('count_send_question_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
 
 def count_send_file(df):
     df = df[df['Message'].str.contains('파일')]
@@ -85,9 +95,9 @@ def count_send_file(df):
     df = pd.DataFrame(df)
     df = df.reset_index()
     df.columns = ['User', 'count_send_file']
-    for i in range (len(df)) :
-        print ('User :',df.iloc[i]['User'], ', File send counts :',
-               df.iloc[i]['count_send_file'])
+    df_f=df
+    with open('count_send_file_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
 
 def count_send_picture(df):
     df = df[df['Message'].str.contains('사진')]
@@ -95,24 +105,34 @@ def count_send_picture(df):
     df = pd.DataFrame(df)
     df = df.reset_index()
     df.columns = ['User', 'count_send_picture']
-    for i in range (len(df)) :
-        print ('User Name :',df.iloc[i]['User'], ', Picture send counts :',
-               df.iloc[i]['count_send_picture'])
+    df_f=df
+    with open('count_send_picture_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
 
 def num_of_user(df) :
     df = df['User'].value_counts(dropna=True, sort=True)
     df = pd.DataFrame(df)
     df = df.reset_index()
     df.columns = ['User', 'Chat_counts']
-    print('채팅방의 참가자 수 :', len(df))
+    num_of_user = len(df)
+    num_of_user_data = {
+        "num_of_user": num_of_user
+    }
+    with open('num_of_user_func.json', 'w', encoding='utf-8') as file:
+        return json.dump(num_of_user_data, file)
 
-def mean_of_message(df) :
-    print(df.groupby(['User'])['length'].mean())
+def mean_of_message_len(df) :
+    df_f=df.groupby(['User'])['length'].mean()
+    with open('mean_of_message_len_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
 
 def time_chat_counts(df) :
     df['24time_H']= df['24time'].astype(str)
     df['24time_H']=df['24time_H'].str[:2]
     print(df['24time_H'].value_counts())
+    df_f = df['24time_H'].value_counts()
+    with open('time_chat_counts_func.json', 'w', encoding='utf-8') as file:
+        return df_f.to_json(file, force_ascii=False)
 
 if __name__ == '__main__':
     msg_list = read_kko_msg("kakao.txt")
@@ -121,6 +141,8 @@ if __name__ == '__main__':
 
     df.Date = pd.to_datetime(df.Date)
     
+    df["hour"] = df["Date"].apply(lambda x : x.hour)
+    df["minute"] = df["Date"].apply(lambda x : x.minute)
     df["year"] = df['Date'].dt.strftime('%Y')
     df["month"] = df['Date'].dt.strftime('%m')
     df["day"] = df['Date'].dt.strftime('%d')
@@ -165,6 +187,8 @@ if __name__ == '__main__':
 
     df["quarter"] = quarter
     
+    # files=['extract_period_func.json','participant_show_func.json','chat_counts_func.json']
+
     print('==========kakaotalk 시작, 종료 날짜==========')
     extract_period(df)
     print('==========채팅방의 참여자 수==========')
@@ -180,6 +204,6 @@ if __name__ == '__main__':
     print('==========참여자별 사진 전송 횟수==========')
     count_send_picture(df)
     print('==========참여자별 채팅 평균 길이==========')
-    mean_of_message(df)
+    mean_of_message_len(df)
     print('==========시간대별 채팅 빈도수==========')
     time_chat_counts(df)
