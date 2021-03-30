@@ -56,8 +56,10 @@ def extract_period(df) :
         "start": start,
         "end": end
     }
-    with open('extract_period_func.json', 'w', encoding='utf-8') as file:
-        return json.dump(date_data, file)
+    print(start, end)
+    return start, end
+    # with open('extract_period_func.json', 'w', encoding='utf-8') as file:
+    #     return json.dump(date_data, file)
     
 def participant_show(df):
     df = df['User'].value_counts(dropna=True, sort=True)
@@ -66,8 +68,10 @@ def participant_show(df):
     df.columns = ['User', 'Chat_counts']
     print(df['User'])
     df_f=df['User']
-    with open('participant_show_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
+    print(df_f)
+    return df_f
+    # with open('participant_show_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
 
 def chat_counts(df) :
     df = df['User'].value_counts(dropna=True, sort=True)
@@ -75,9 +79,10 @@ def chat_counts(df) :
     df = df.reset_index()
     df.columns = ['User', 'Chat_counts']
     df_f=df
-    with open('chat_counts_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
-
+    print(df_f)
+    return df_f
+    # with open('chat_counts_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
 
 def count_send_question(df):
     df = df[df['Message'].str.contains('\?')]
@@ -86,8 +91,10 @@ def count_send_question(df):
     df = df.reset_index()
     df.columns = ['User', 'count_send_question']
     df_f=df
-    with open('count_send_question_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
+    print(df_f)
+    return df_f
+    # with open('count_send_question_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
 
 def count_send_file(df):
     df = df[df['Message'].str.contains('파일')]
@@ -96,8 +103,10 @@ def count_send_file(df):
     df = df.reset_index()
     df.columns = ['User', 'count_send_file']
     df_f=df
-    with open('count_send_file_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
+    print(df_f)
+    return df_f
+    # with open('count_send_file_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
 
 def count_send_picture(df):
     df = df[df['Message'].str.contains('사진')]
@@ -106,8 +115,10 @@ def count_send_picture(df):
     df = df.reset_index()
     df.columns = ['User', 'count_send_picture']
     df_f=df
-    with open('count_send_picture_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
+    print(df_f)
+    return df_f
+    # with open('count_send_picture_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
 
 def num_of_user(df) :
     df = df['User'].value_counts(dropna=True, sort=True)
@@ -115,24 +126,47 @@ def num_of_user(df) :
     df = df.reset_index()
     df.columns = ['User', 'Chat_counts']
     num_of_user = len(df)
-    num_of_user_data = {
-        "num_of_user": num_of_user
-    }
-    with open('num_of_user_func.json', 'w', encoding='utf-8') as file:
-        return json.dump(num_of_user_data, file)
+    print(num_of_user)
+    return num_of_user
+    # num_of_user_data = {
+    #     "num_of_user": num_of_user
+    # }
+    # with open('num_of_user_func.json', 'w', encoding='utf-8') as file:
+    #     return json.dump(num_of_user_data, file)
 
 def mean_of_message_len(df) :
     df_f=df.groupby(['User'])['length'].mean()
-    with open('mean_of_message_len_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
+    print(df_f)
+    return df_f
+    # with open('mean_of_message_len_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
 
 def time_chat_counts(df) :
     df['24time_H']= df['24time'].astype(str)
     df['24time_H']=df['24time_H'].str[:2]
-    print(df['24time_H'].value_counts())
     df_f = df['24time_H'].value_counts()
-    with open('time_chat_counts_func.json', 'w', encoding='utf-8') as file:
-        return df_f.to_json(file, force_ascii=False)
+    print(df_f)
+    return df_f
+    # with open('time_chat_counts_func.json', 'w', encoding='utf-8') as file:
+    #     return df_f.to_json(file, force_ascii=False)
+
+# def merge_json():
+#     result = []
+#     for f in glob.glob("*.json"):
+#         with open(f, "rb") as infile:
+#             result.append(json.load(infile))
+
+#     with open("merged_file.json", "wb") as outfile:
+#         return json.dump(result, outfile)
+
+# def merge_json():
+#     result = []
+#     for f in glob.glob("*.json"):
+#         with open(f, "r", encoding="utf-8") as infile:
+#             result.append(json.load(infile))
+
+#     with open("merged_file.json", "w", encoding="cp949") as outfile:
+#         json.dump(result, outfile)
 
 if __name__ == '__main__':
     msg_list = read_kko_msg("kakao.txt")
@@ -207,3 +241,4 @@ if __name__ == '__main__':
     mean_of_message_len(df)
     print('==========시간대별 채팅 빈도수==========')
     time_chat_counts(df)
+    # merge_json()
