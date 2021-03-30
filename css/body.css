@@ -1,12 +1,38 @@
 
 .body{background:linear-gradient(
-    147deg,#ff3469 25%,#ffaa71 100%);color: white;margin-top: 5rem;margin-bottom:5rem;height:20rem}
-
-
+    147deg,#ff3469 25%,#ffaa71 100%);color: white;margin-top: 5rem;margin-bottom:5rem;height:7rem
+    }
+.service{
+    padding:10px;
+}
+.analysis-info{
+    font-size: 15px;;
+    margin:8px;
+    font-family: 'Roboto', sans-serif;
+}
+.description{
+    background: white;
+    /*background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+    */color:black;
+    margin-left: 2rem;margin-right: 2rem;
+    margin-top: 5rem;height:10rem;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.skills, .pos,.chat-ratio{
+    padding-top:20px;
+    background-image: linear-gradient(to top, rgb(230, 230, 230) 0%, rgb(255,255,250) 100%);
+ }
 .chat-ratio-title, .skills-title{
     color:grey;
     text-decoration: none;
-    font-family: 'Sen',sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size:20px;
 }
+
+
+
+
 

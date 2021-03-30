@@ -52,7 +52,7 @@ body {
 #prev,
 #next {
     position: absolute;
-    top: 50%;
+    top: 40%;
 	left:50%;
     transform: translateY(-50%);
     z-index: 999999;
@@ -68,12 +68,12 @@ body {
 
 #prev.disabled, #next.disabled { display:none;}
 
-#prev { background-image: url('../html/arrow-left-out.svg'); margin-left:-480px;}
-
+#prev { background-image: url('../html/arrow-left-out.svg'); margin-left:-380px;}
+ 
 #prev:hover { background-image: url('../html/arrow-left-over.svg');}
 
 #next {
-    margin-left:430px;
+    margin-left:310px;
     background-image: url('../html/arrow-right-out.svg');
 
 }

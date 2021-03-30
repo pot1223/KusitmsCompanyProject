@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en' dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, inital-scale=1.0">
+    <title>Document </title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/autoinfo.css">
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Sen:wght@400;700;800&display=swap"
+    rel = "stylesheet" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</head>
+<body>
+<!-- 네브바 html -->
+<div class="navbar_body">
+    <div class="menu-wrapper">
+        <a href="#" id="logo"> </a>
+        <nav>
+            <ul class="navbar_menu">
+                <li class="navbar_menu li active"><a>Home</a></li>
+                <li class="navbar_menu li"><a>Analysis</a></li>
+                <li class="navbar_menu li"><a>Graph</a></li>
+                <li class="navbar_menu li"><a>Result</a></li>
+                <li class="navbar_menu li"><a>About</a></li>
+                <li><a href=""> </a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<!-- 바디 html -->
+<div class= body>
+    <div class=service>
+        <span clss="anaylsis-info">분석 대상 :</span><br>
+        <span clss="anaylsis-info">분석 일자 :</span><br>
+        <span clss="anaylsis-info">분석 기간 :</span><br>
+    </div>
+   </div>
+<!-- 자동슬라이드 html -->
+<div class="container" style = "  display:flex;
+    align-items: center;
+    justify-content: center;" >
+    <ul class="slider-container simple-list" id="slider" >
+        <li class="slide">
+            <div class="chat-ratio"style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
+                <h4 class="chat-ratio-title">카톡방 대화비율</h4>
+                <hr>
+                <canvas id="myChart" width="550"></canvas>
+                <div class="description"></div>
+                <hr>
+            </div>
+        </li>
+        <li class="slide">
+            <div class="skills"style = "height: 30rem; width:30rem;display:table;align-items: center; justify-content: center;">
+                <h4 class="skills-title">팀원의 능력</h4>
+                <hr>
+                <canvas id ="myChart2" width="550"></canvas>
+                <div class="description"></div>
+                <hr>
+            </div>        
+        </li>
+        <li class="slide">
+            <div class="pos"style = "height: 30rem; width:30rem;display:table;align-items: center; justify-content: center;
+            ">
+                <h4 class="skills-title">적합한 포지션</h4>
+                <hr>
+                <canvas id ="coordinatePlane" width="550" height="290"></canvas>
+                <div class="description">oo 님께 적합한 포지션은 리더/추진력입니다.</div>
+                 <hr>
+        </li>
+        <li class="slide">
+            <div style = "height: 30rem; width:30rem;display:flex;align-items: center;justify-content: center;
+                    background-color: aquamarine">
+                오각형 성격도
+            </div>
+        </li>
+        <li class="slide">
+            <div style = "height: 30rem; width:30rem;display:flex;align-items: center;justify-content: center;
+                   background-color: aquamarine">
+                오각형 성격도
+            </div>
+
+        </li>
+        <li class="slide">
+            <div style = "height: 30rem; width:30rem; display:flex;align-items: center;justify-content: center;
+                 ;background-color: aquamarine">
+                오각형 성격도
+            </div>
+        </li>
+    </ul>
+    <script src="..\js\script.js"></script>
+    <a href="#" id="prev"></a>
+    <a href="#" id="next"></a>
+</div>
+<!-- footer html -->
+<div class="developer">&copy; KUSITMS | &nbsp; &nbsp; &nbsp; &nbsp; Kang Juyeon&nbsp;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; Kim Yubin&nbsp;
+    &nbsp; &nbsp;
+    &nbsp; &nbsp; Byun Woojin&nbsp;
+
+    &nbsp; &nbsp; &nbsp; &nbsp; Song Minho&nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; Seok Younghyun &nbsp;
+    &nbsp; &nbsp; &nbsp; &nbsp; Lee Naeun&nbsp;
+
+</div>
+<script src = "../js/autoinfo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src = "../js/navbar.js"></script>
+</body>
+</html>

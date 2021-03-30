@@ -36,16 +36,16 @@ let chart2 = new Chart(myChart2,{
         datasets:[{
             label: "A Person",
             fill:true,
-            backgroundColor: "rgba(179,181,198,0.2)",
+            backgroundColor: "rgba(255, 52, 105,0.1)",
             boarderColor:"rgba(179,181,198,1)",
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(179,181,198,1.2)",
-            data:[100,60,42,37,81] 
+            data:[90,60,42,37,81] 
         },
        {
             label: "B Person",
             fill:true,
-            backgroundColor: "rgba(70,190,198,0.2)",
+            backgroundColor: "rgba(255, 170, 113,0.2)",
             boarderColor:"rgba(70,190,198,1)",
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
@@ -66,22 +66,31 @@ let chart2 = new Chart(myChart2,{
 
 });
 
-let pos_result = document.getElementById("Position").getContext('2d');
+let pos_result = document.getElementById("coordinatePlane").getContext('2d');
 
 pos_result.beginPath();
 pos_result.strokeStyle="black";
 pos_result.lineWidth="0.3";
-pos_result.moveTo(425,5);
-pos_result.lineTo(425,415);
+pos_result.moveTo(275,0);
+pos_result.lineTo(275,290);
 pos_result.stroke();
 
-pos_result.moveTo(5,210);
-pos_result.lineTo(845,210);
+pos_result.moveTo(5,145);
+pos_result.lineTo(545,145);
 pos_result.stroke();
 
 pos_result.fillStyle="black";
-pos_result.font="15px arial";
-pos_result.fillText("리더",810,205);
-pos_result.fillText("서포터",10,205);
-pos_result.fillText("추진력",430,20);
-pos_result.fillText("신중함",430,410);
+pos_result.font="13px arial";
+pos_result.fillText("리더",515,135);
+pos_result.fillText("서포터",10,135);
+pos_result.fillText("추진력",280,20);
+pos_result.fillText("신중함",280,285);
+
+var gra=pos_result.createLinearGradient(0, 0, 30, 100);
+gra.addColorStop(0.4,"#ff3469");
+gra.addColorStop(1,"#ffaa71");
+
+// 좌표 : X: 5~545, Y: 0~290
+pos_result.fillStyle=gra;
+// 파라미터 앞에 두자리가 사각형 좌표(position)
+pos_result.fillRect(50,50,30,30);
