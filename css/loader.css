@@ -16,9 +16,8 @@ body{
     position: relative;
     width: 100%;
     height: 10px;
-    border: 1px solid #69d2e7;
-    border-radius: 10px;
-    
+    border: 1px solid linear-gradient(147deg,#ff3469 25%,#ffaa71 100%);
+
 }
 
 .loader .loading_1:before{
@@ -27,22 +26,51 @@ body{
     position: absolute;
     width:0;
     height: 100%;
-    background-color: #69d2e7;
-    box-shadow: 10px 0px 15px 0px #69d2e7;
+    background-color:#ff3469;
+    box-shadow: 10px 0px 15px 0px  #ffaa71 ;
     animation: load 2s linear infinite;
+    border-radius: 20px;
 }
 
 .loader .loading_2{
     position: absolute;
     width: 100%;
-    bottom: 600%;
+    bottom: 300%;
     text-align:center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-img.infinite_rotating_logo{
-    animation: spin 2s linear infinite;
+#logo {
+    /* animation: spin 2s linear infinite; */
+    position: fixed;
     transform-origin: 50% 50%;
+    top: 50%;
+    left:0%;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: inline-block;
+    height: 3em;
+    width: 10em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("..//html/요즘것들logo.png");
 }
+
+.wrap{
+     width:150px;
+     height:150px;
+     border-radius: 50%;
+     border: 8px solid #FFDAD9;
+     border-top: 8px solid  #ff3469;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+     animation: spin 2s linear infinite;
+}
+
 
 
 @keyframes load{
@@ -53,7 +81,6 @@ img.infinite_rotating_logo{
         width:100%
     }
 }
-
 
 
 @keyframes spin{
