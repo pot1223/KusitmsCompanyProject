@@ -1,6 +1,31 @@
-body{
-    background-color: #262626;
-    font-family: Lato, sans-serif;
+
+
+#mask {  
+    position:absolute;  
+    z-index:9000;  
+    background-color:#000;  
+    display:none;  
+    left:0;
+    top:0;
+  }
+
+
+.openMask {
+   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.loading{
+    width:100%;
+    height:100%;
+    position:fixed;
+    left:0px;
+    top:0px;
+    background:white;
+    z-index:1000; /* 이 값으로 레이어의 위치를 조정합니다. */
 }
 
 .loader{
@@ -9,6 +34,7 @@ body{
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+    
 }
 
 .loader .loading_1{
