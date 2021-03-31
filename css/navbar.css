@@ -27,6 +27,7 @@ body{
     overflow: hidden;
     list-style: none;
     display:flex;
+    margin-left:auto;
 }
 
 
