@@ -79,3 +79,14 @@ timer = setInterval(function () {
      goToSlide(nextIndex);
 }, 4000);
 }
+
+function stopAutoSlide(){
+clearInterval(timer);
+}
+
+slideWrapper.addEventListener('mouseenter',function (){
+stopAutoSlide();
+console.log(timer);});
+slideWrapper.addEventListener('mouseleave',function (){
+startAutoSlide();
+console.log(timer);});
