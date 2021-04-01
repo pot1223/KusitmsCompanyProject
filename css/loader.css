@@ -1,0 +1,119 @@
+
+
+#mask {  
+    position:absolute;  
+    z-index:9000;  
+    background-color:#000;  
+    display:none;  
+    left:0;
+    top:0;
+  }
+
+
+.openMask {
+   
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.loading{
+    width:100%;
+    height:100%;
+    position:fixed;
+    left:0px;
+    top:0px;
+    background:white;
+    z-index:1000; /* 이 값으로 레이어의 위치를 조정합니다. */
+}
+
+.loader{
+    width: 300px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    
+}
+
+.loader .loading_1{
+    margin-top: 15px;
+    position: relative;
+    width: 100%;
+    height: 10px;
+    border: 1px solid linear-gradient(147deg,#ff3469 25%,#ffaa71 100%);
+
+}
+
+.loader .loading_1:before{
+    content:"";
+    display:block;
+    position: absolute;
+    width:0;
+    height: 100%;
+    background-color:#ff3469;
+    box-shadow: 10px 0px 15px 0px  #ffaa71 ;
+    animation: load 2s linear infinite;
+    border-radius: 20px;
+}
+
+.loader .loading_2{
+    position: absolute;
+    width: 100%;
+    bottom: 300%;
+    text-align:center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#logo {
+    /* animation: spin 2s linear infinite; */
+    position: fixed;
+    transform-origin: 50% 50%;
+    top: 50%;
+    left:0%;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: inline-block;
+    height: 3em;
+    width: 10em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("..//html/요즘것들logo.png");
+}
+
+.wrap{
+     width:150px;
+     height:150px;
+     border-radius: 50%;
+     border: 8px solid #FFDAD9;
+     border-top: 8px solid  #ff3469;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+     animation: spin 2s linear infinite;
+}
+
+
+
+@keyframes load{
+    0%{
+        width:0%;
+    }
+    87.5%{
+        width:100%
+    }
+}
+
+
+@keyframes spin{
+    0%{
+        transform: translate(-50%,-50%); transform:rotate(0deg);
+    }
+    100%{
+        transform: translate(-50%,-50%); transform:rotate(360deg);
+    }
+}
