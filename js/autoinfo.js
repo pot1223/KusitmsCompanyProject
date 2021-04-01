@@ -73,10 +73,10 @@ goToSlide(0);
 startAutoSlide();
 //자동 슬라이드 구현
 
-/*function startAutoSlide() {
+function startAutoSlide() {
 timer = setInterval(function () {
      nextIndex = (currentIndex + 1)%slideCount;
-    goToSlide(nextIndex);
+     goToSlide(nextIndex);
 }, 4000);
 }
 
@@ -89,4 +89,4 @@ stopAutoSlide();
 console.log(timer);});
 slideWrapper.addEventListener('mouseleave',function (){
 startAutoSlide();
-console.log(timer);});*/
+console.log(timer);});
