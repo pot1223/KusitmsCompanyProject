@@ -76,7 +76,7 @@ startAutoSlide();
 function startAutoSlide() {
 timer = setInterval(function () {
      nextIndex = (currentIndex + 1)%slideCount;
-    goToSlide(nextIndex);
+     goToSlide(nextIndex);
 }, 4000);
 }
 

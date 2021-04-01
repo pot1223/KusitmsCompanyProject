@@ -11,9 +11,10 @@ body{
     box-sizing: border-box;
     transition: top .6s;
     background: rgba(0 ,0 ,0 ,0.6);
-    padding: 10px;
+    padding-top: 27px;
+    padding-left: 170px;
     overflow: hidden;
-    height: 6rem;
+    height: 5.5rem;
     border:2rem;
 }
 .menu-wrapper{
@@ -25,19 +26,22 @@ body{
 .navbar_menu {
     overflow: hidden;
     list-style: none;
+    display:flex;
+    margin-left:auto;
 }
+
 
 .navbar_menu li {
     float: left;
-    margin-left: 16px;
+    margin-right:60px;
+    color:white
 }
 
 .navbar_menu li a{
-    color:#fff;
     text-decoration: none;
-    font-family: Roboto;
-    font-size:16px;
-    font-weight: bold;
+    font-family: 'Sen',sans-serif;
+    font-size:20px;
+   /* font-weight: bold;*/
 }
 
 .navbar_body.animate{
@@ -59,6 +63,6 @@ body{
     width: 10em;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url("요즘것들logo.png");
+    background-image: url("..//html/요즘것들logo.png");
 }
 
