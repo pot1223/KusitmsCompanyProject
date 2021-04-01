@@ -1,6 +1,8 @@
 
 /* 채팅횟수 그래프 data*/
-/*fetch("http://www.afyproject2.ml/analyze")
+/*
+let fin_data;
+fetch("http://www.afyproject2.ml/analyze")
     .then((response)=> response.json())
     .then((data)=>fin_data=data.data);
 
