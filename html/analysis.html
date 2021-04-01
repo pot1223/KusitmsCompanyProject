@@ -34,9 +34,8 @@
 <!-- 바디 html -->
 <div class= body>
     <div class=service>
-        <span clss="anaylsis-info">분석 대상 :</span><br>
-        <span clss="anaylsis-info">분석 일자 :</span><br>
-        <span clss="anaylsis-info">분석 기간 :</span><br>
+       <p>KUSITMS 기업프로젝트 2조</p>
+       <p>전체 팀플 구성원의 기여도를 분석합니다.</p>
     </div>
    </div>
 <!-- 자동슬라이드 html -->
@@ -45,17 +44,21 @@
     justify-content: center;" >
     <ul class="slider-container simple-list" id="slider" >
         <li class="slide">
-            <div class="chat-ratio"style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
-                <h4 class="chat-ratio-title">카톡방 정보</h4>
+            <div class="kakao_info" style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
+                <h4 class="kakao-title">카톡방 정보</h4>
                 <hr>
-                <canvas id="myChart" width="550"></canvas>
-                <div class="description"></div>
+                <div class="kakao__data" style="font-size: 18px; font-weight:bolder;">
+                    <div id="now_date"></div><br>
+                    <div id="duration"></div><br>
+                    <div id="total_chat"></div><br>
+                    <div id="average_chat"></div><br>
+                </div>
                 <hr>
             </div>
         </li>        
         <li class="slide">
             <div class="chat-ratio"style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
-                <h4 class="chat-ratio-title">카톡방 대화비율</h4>
+                <h4 class="chat-ratio-title">채팅 길이 평균</h4>
                 <hr>
                 <canvas id="myChart3" width="550"></canvas>
                 <div class="description"></div>
