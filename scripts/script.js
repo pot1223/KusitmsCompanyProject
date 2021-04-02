@@ -1,6 +1,19 @@
+requirejs.config({
+    baseUrl: 'js/lib',
+    
+    paths: {
+        script: '../script'
+    }
+});
+requirejs(['jquery', 'canvas', 'script/sub'],
+function   ($,        canvas,   sub) {
 
+});
+requirejs(['jquery', 'canvas', 'cript/sub'],
+function   ($,        canvas,   sub) {
+});
 
-const fs=require('fs');//
+const fs=require('fs');
 var filename ='/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
 
 var analyze_result_file = fs.readFileSync(filename);
