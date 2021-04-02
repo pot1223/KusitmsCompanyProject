@@ -1,12 +1,9 @@
 var filename = "http://www.afyproject2.ml/test";
-//var filename ='/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
 
 var analyze_result_file = await fetch(filename).then(function (response) {
   return response.json();
 });
 
-// var analyze_result_file = fs.readFileSync(filename);
-// analyze_result_string = analyze_result_file.toString();
 const analyze_result = analyze_result_file.data;
 
 console.log(analyze_result.participant_list);
@@ -163,7 +160,7 @@ let chart2 = new Chart(myChart2, {
         data: [
           analyze_result.workability.User[participant[3]],
           analyze_result.cooperation.User[participant[3]],
-          analyze_result.realtion.User[participant[3]],
+          analyze_result.relation.User[participant[3]],
           analyze_result.participation.User[participant[3]],
           analyze_result.participant_activity.Activity[participant[3]],
         ],
