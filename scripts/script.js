@@ -1,4 +1,4 @@
-/*let analyze_result_file = fetch('/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json');
+/*let analyze_result_file = fs.readFileSync('/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json');
 let analyze_result_string = analyze_result_file.toString();
 let analyze_result = JSON.parse(analyze_result_string);
 */
@@ -25,7 +25,7 @@ document.getElementById("chat_content").innerHTML="대화주제 :"
     +contents_arr[0]+", "+contents_arr[1]+","+contents_arr[2]+","+contents_arr[3];
 
 /* 3번째: 채팅 빈도수 그래프 */
-let labels1=participant; 
+let labels1=analyze_result.data.participant; 
 let datas1=Object.values(analyze_result.data.participant_chat.Chat_counts); /*각자 채팅 횟수*/
 function getRandomColor() {
     let colors=new Array();
@@ -65,6 +65,7 @@ let chart1 = new Chart(myChart1,{
 /*4번째: 오각형 그래프 */
 
 let labels2 = ['근로성','협조성','연관성','적극성','성실성'];
+let data2=analyze_result.data.participant; 
 let myChart2 = document.getElementById("myChart2").getContext('2d');
 let chart2 = new Chart(myChart2,{
     type: 'radar',
@@ -72,7 +73,7 @@ let chart2 = new Chart(myChart2,{
         labels:labels2,
         datasets:[
             {
-            label: participant[0],
+            label: data2[0],
             fill:true,
             backgroundColor: "rgba(255, 170, 113,0.2)",
             boarderColor:"rgba(100,90,198,1)",
@@ -87,7 +88,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[1],
+            label: data2[1],
             fill:true,
             backgroundColor: "rgba(170, 255, 113,0.2)",
             boarderColor:"rgba(80,90,198,1)",
@@ -102,7 +103,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[2],
+            label: data2[2],
             fill:true,
             backgroundColor: "rgba(255, 170, 113,0.2)",
             boarderColor:"rgba(100,90,198,1)",
@@ -117,7 +118,7 @@ let chart2 = new Chart(myChart2,{
             ]
           },
           {
-            label: participant[3],
+            label: data2[3],
             fill:true,
             backgroundColor: "rgba(255, 170, 113,0.2)",
             boarderColor:"rgba(90,100,198,1)",
@@ -132,7 +133,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[4],
+            label: data2[4],
             fill:true,
             backgroundColor: "rgba(205, 170, 10,0.2)",
             boarderColor:"rgba(100,90,98,1)",
@@ -147,7 +148,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[5],
+            label: data2[5],
             fill:true,
             backgroundColor: "rgba(25, 17, 113,0.2)",
             boarderColor:"rgba(100,90,18,1)",
@@ -162,7 +163,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[6],
+            label: data2[6],
             fill:true,
             backgroundColor: "rgba(215, 170, 133,0.2)",
             boarderColor:"rgba(100,90,198,1)",
@@ -177,7 +178,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[7],
+            label: data2[7],
             fill:true,
             backgroundColor: "rgba(255, 172, 113,0.2)",
             boarderColor:"rgba(105,95,198,1)",
@@ -192,7 +193,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[8],
+            label:data2[8],
             fill:true,
             backgroundColor: "rgba(255, 170, 113,0.2)",
             boarderColor:"rgba(200,9,19,1)",
@@ -207,7 +208,7 @@ let chart2 = new Chart(myChart2,{
         ] 
           },
           {
-            label: participant[9],
+            label: data2[9],
             fill:true,
             backgroundColor: "rgba(202, 130, 113,0.2)",
             boarderColor:"rgba(30,90,198,1)",
