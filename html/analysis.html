@@ -43,20 +43,20 @@
     justify-content: center;" >
     <ul class="slider-container simple-list" id="slider" >
         <li class="slide">
-            <div class="kakao_info" style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="kakao_info" style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="kakao-title">카톡방 정보</h4>
                 <hr>
                 <div class="kakao__data" style="font-size: 18px; font-weight:bolder;">
                     <div id="now_date"></div><br>
                     <div id="duration"></div><br>
+                    <div id="participant"></div><br>
                     <div id="total_chat"></div><br>
-                    <div id="average_chat"></div><br>
                 </div>
                 <hr>
             </div>
         </li>        
         <li class="slide">
-            <div class="chat-ratio"style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="chat-ratio"style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="chat-ratio-title">채팅 길이 평균</h4>
                 <hr>
                 <canvas id="myChart3" width="550"></canvas>
@@ -65,7 +65,7 @@
             </div>
         </li>         
         <li class="slide">
-            <div class="chat-ratio"style = "height: 25rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="chat-ratio"style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="chat-ratio-title">카톡방 대화비율</h4>
                 <hr>
                 <canvas id="myChart" width="550"></canvas>
@@ -74,7 +74,7 @@
             </div>
         </li>                                                      
         <li class="slide">
-            <div class="skills"style = "height: 30rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="skills"style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="skills-title">팀원의 능력</h4>
                 <hr>
                 <canvas id ="myChart2" width="550"></canvas>
@@ -82,17 +82,8 @@
                 <hr>
             </div>        
         </li>
-        <li class="slide">
-            <div class="pos"style = "height: 30rem; width:30rem;display:table;align-items: center; justify-content: center;
-            ">
-                <h4 class="skills-title">적합한 포지션</h4>
-                <hr>
-                <canvas id ="coordinatePlane" width="550" height="290"></canvas>
-                <div class="description">oo 님께 적합한 포지션은 리더/추진력입니다.</div>
-                 <hr>
-        </li>
     </ul>
-    <script src="..\js\script.js"></script>
+    <script type="module" src="../js/script.js"></script>
     <a href="#" id="prev"></a>
     <a href="#" id="next"></a>
 </div>
