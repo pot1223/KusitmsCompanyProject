@@ -53,6 +53,15 @@ function getRandomColor() {
   }
   return colors;
 }
+function getColor() {
+  var r = Math.floor(Math.random() * 255);
+  var g = Math.floor(Math.random() * 255);
+  var b = Math.floor(Math.random() * 255);
+  let color=("rgba(" + r + "," + g + "," + b + ",0.5)");
+
+return color;
+}
+
 let colors1 = getRandomColor();
 let myChart1 = document.getElementById("myChart").getContext("2d");
 
@@ -80,7 +89,36 @@ let chart1 = new Chart(myChart1, {
   },
 });
 /*4번째: 오각형 그래프 */
-
+function getDataset(){
+  let datasets=new Array();
+  for(let i=0;i<data2.length;i++){
+     let data= {
+          label: data2[0],
+          fill:true,
+          backgroundColor: getColor(),
+          boarderColor:"rgba(100,90,198,1)",
+          pointBorderColor:"#fff",
+          pointBackgroundColor:"rgba(70,190,198,1.2)",
+          data:[
+          analyze_result.data.workability.User[data2[i]],
+          analyze_result.data.cooperation.User[data2[i]],
+          analyze_result.data.relation.User[data2[i]],
+          analyze_result.data.participation.User[data2[i]],
+          analyze_result.data.participant_activity.Activity[data2[i]]
+      ] 
+        };
+        datasets.push(data);
+  }
+  return datasets;
+}
+let labels2 = ['근로성','협조성','연관성','적극성','성실성'];
+let data2=analyze_result.participant; 
+let myChart2 = document.getElementById("myChart2").getContext('2d');
+let chart2 = new Chart(myChart2,{
+  type: 'radar',
+  data:{
+      labels:labels2,
+      datasets:getDataset()}});
 /*function getData(index){
      datasets: [{
          label: participant[0],
@@ -97,7 +135,7 @@ let chart1 = new Chart(myChart1, {
              analyze_result.participant_activity.Activity[participant_list[0]]
  }]
      return datasets;
- };*/
+ };
 let labels2 = ["근로성", "협조성", "연관성", "적극성", "성실성"];
 let myChart2 = document.getElementById("myChart2").getContext("2d");
 let chart2 = new Chart(myChart2, {
