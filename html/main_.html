@@ -40,7 +40,18 @@
 <form action="http://www.afyproject2.ml/analyze" method="post" enctype="multipart/form-data">
     <span class="box">
         <input type="file" name= "text" id="file" class="int_file" accept="text/plain" />
-        <input type="submit"> 
+        <input type="submit" onclick="Fetch()"> 
+        <script type="text/javascript">
+            let analyze;
+            function Fetch(){
+                fetch("http://www.afyproject2.ml/analyze")
+                .then((resp)=>analyze=resp.json())
+                .then(function(data){
+                    console.log("data");
+                }
+                .catch(err=>console.log(err))
+                )};
+        </script>
     </span>
 </form>
 
