@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
   };
   PythonShell.run("kakao.py", options, (err, data) => {
     if (err) throw err;
-    const = result = JSON.parse(data);
+    const result = JSON.parse(data);
     // const analyze_result = {
     //   time_all_chat: result.time_all_chat,
     //   chat_per_day: result.chat_per_day_result,

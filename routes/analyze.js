@@ -36,8 +36,8 @@ router.post("/", upload.single("text"), async (req, res) => {
       "/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json",
       data
     );
-    
-    const result = JSON.parse(data)
+
+    const result = JSON.parse(data);
 
     return res
       .status(200)
@@ -47,7 +47,7 @@ router.post("/", upload.single("text"), async (req, res) => {
 
 router.get("/", async (req, res) => {
   analyze_result_file = fs.readFileSync(
-    "C:/Users/s_0hyeon/Desktop/kusitms/kusitms_companyPJ/routes/analyze_result.json"
+    "/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json"
   );
   analyze_result_string = analyze_result_file.toString();
   analyze_result = JSON.parse(analyze_result_string);
