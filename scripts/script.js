@@ -1,8 +1,11 @@
-const fs=requirejs(['fs']);
-let analyze_result_file = fs.readFileSync('/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json');
+/*let analyze_result_file = fetch('/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json');
 let analyze_result_string = analyze_result_file.toString();
 let analyze_result = JSON.parse(analyze_result_string);
-
+*/
+let analyze_result;
+fetch('/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json') 
+.then(response => response.json()) 
+.then(data => analyze_result=data);
 document.getElementById("now_date").innerHTML="분석일자 :"+new Date().toLocaleString();
 let start_date=analyze_result.date_data.start;
 let end_date=analyze_result.date_data.end;
