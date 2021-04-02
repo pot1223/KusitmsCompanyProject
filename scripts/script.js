@@ -1,24 +1,8 @@
-requirejs.config({
-    baseUrl: 'js/lib',
-    
-    paths: {
-        script: '../script'
-    }
-});
-requirejs(['jquery', 'canvas', 'script/sub'],
-function   ($,        canvas,   sub) {
-
-});
-requirejs(['jquery', 'canvas', 'cript/sub'],
-function   ($,        canvas,   sub) {
-});
-
-const fs=require('fs');
+const fs = requirejs('fs');
 var filename ='/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
-
 var analyze_result_file = fs.readFileSync(filename);
-  analyze_result_string = analyze_result_file.toString();
-  analyze_result = JSON.parse(analyze_result_string);
+var analyze_result_string = analyze_result_file.toString();
+var analyze_result = JSON.parse(analyze_result_string);
 
 console.log(analyze_result);
 document.getElementById("now_date").innerHTML="분석일자 :"+new Date().toLocaleString();
@@ -305,5 +289,4 @@ let chart3 = new Chart(myChart3,{
     }
 
 });
-
 
