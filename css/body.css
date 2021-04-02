@@ -16,9 +16,8 @@
     background-color:#eff3f7;
     color:black;
     margin-left: 2rem;margin-right: 2rem;
-    margin-top: 5rem;height:10rem;
+    margin-top: 5rem;height:12rem;
     font-family: 'Roboto', sans-serif;
-    display: flex;
     justify-content: center;
     align-items: center;
 }

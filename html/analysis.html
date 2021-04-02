@@ -43,7 +43,7 @@
     justify-content: center;" >
     <ul class="slider-container simple-list" id="slider" >
         <li class="slide">
-            <div class="kakao_info" style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="kakao_info" style = "height: 40rem; width:35rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="kakao-title">카톡방 정보</h4>
                 <hr>
                 <div class="kakao__data" style="font-size: 18px; font-weight:bolder;">
@@ -51,34 +51,43 @@
                     <div id="duration"></div><br>
                     <div id="participant"></div><br>
                     <div id="total_chat"></div><br>
+                    <div id="chat_content"></div><br>
                 </div>
                 <hr>
             </div>
         </li>        
         <li class="slide">
-            <div class="chat-ratio"style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
-                <h4 class="chat-ratio-title">채팅 길이 평균</h4>
+            <div class="chat-ratio"style = "height: 40rem; width:35rem;display:table;align-items: center; justify-content: center;">
+                <h4 class="chat-ratio-title">1시간 이내 답장 횟수(미정)</h4>
                 <hr>
-                <canvas id="myChart3" width="550"></canvas>
+                <canvas id="myChart3" width="550" height="250"></canvas>
                 <div class="description"></div>
                 <hr>
             </div>
         </li>         
         <li class="slide">
-            <div class="chat-ratio"style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="chat-ratio"style = "height: 40rem; width:35rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="chat-ratio-title">카톡방 대화비율</h4>
                 <hr>
-                <canvas id="myChart" width="550"></canvas>
-                <div class="description"></div>
+                <canvas id="myChart" width="550" height="250"></canvas>
+                <!--div class="description">
+                    <p>[평가지표]</p>
+                </div>-->
                 <hr>
             </div>
         </li>                                                      
         <li class="slide">
-            <div class="skills"style = "height: 40rem; width:30rem;display:table;align-items: center; justify-content: center;">
+            <div class="skills"style = "height: 40rem; width:35rem;display:table;align-items: center; justify-content: center;">
                 <h4 class="skills-title">팀원의 능력</h4>
                 <hr>
-                <canvas id ="myChart2" width="550"></canvas>
-                <div class="description"></div>
+                <canvas id ="myChart2" width="550" height="250"></canvas>
+                <div class="description">
+                    <p>근로성: 대화량, 대화길이 평가</p>
+                    <p>성실성: 파일과 같은 컨텐츠 업로드 횟수 평가</p>
+                    <p>협조성: 활발한 대화 참여 여부 평가</p>
+                    <p>적극성: 대화량, 답장 속도 평가</p>
+                    <p>연관성: 주제에 맞는 대화를 했는지 평가</p>
+                </div>
                 <hr>
             </div>        
         </li>

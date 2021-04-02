@@ -28,11 +28,15 @@ document.getElementById("duration").innerHTML="분석기간 :"+start_date+"~"+en
 let participant=Object.values(analyze_result.data.participant_list);
 document.getElementById("participant").innerHTML="단톡방 인원: "+participant.length+"개";
 
-let chat=Object.values(fin_data.data.participant_chat.Chat_counts); /*각자 채팅 횟수*/
+let chat=Object.values(analyze_result.data.participant_chat.Chat_counts); /*각자 채팅 횟수*/
 let total_chat=0;
 chat.forEach(function(item){total_chat+=Number(item);})
 document.getElementById("total_chat").innerHTML="전체 채팅횟수: "+total_chat+"개";
 
+
+let contents_arr=analyze_result.data.word_cloud.word;
+document.getElementById("chat_content").innerHTML="대화주제 :"
+    +contents_arr[0]+", "+contents_arr[1]+","+contents_arr[2]+","+contents_arr[3];
 
 /* 3번째: 채팅 빈도수 그래프 */
 let labels1=participant; 
@@ -73,8 +77,8 @@ let chart1 = new Chart(myChart1,{
 
 });
 /*4번째: 오각형 그래프 */
-let labels2 = ['근로성','협조성','연관성','적극성','성실성'];
-function getData(index){
+
+/*function getData(index){
     datasets: [{
         label: participant[0],
         fill:true,
@@ -91,32 +95,166 @@ function getData(index){
     
 }]
     return datasets;
-};
+};*/
+let labels2 = ['근로성','협조성','연관성','적극성','성실성'];
 let myChart2 = document.getElementById("myChart2").getContext('2d');
 let chart2 = new Chart(myChart2,{
     type: 'radar',
-    data:
-        /*datasets:[
+    data:{
+        labels:labels2,
+        datasets:[
             {
-            label: "A Person",
+            label: participant[0],
             fill:true,
             backgroundColor: "rgba(255, 170, 113,0.2)",
             boarderColor:"rgba(100,90,198,1)",
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
-            data:[17,82,50,14,27] 
-        },
-       {
-            label: "B Person",
+            data:[
+            analyze_result.data.workability.User[participant[0]],
+            analyze_result.data.cooperation.User[participant[0]],
+            analyze_result.data.realtion.User[participant[0]],
+            analyze_result.data.participation.User[participant[0]],
+            analyze_result.data.participant_activity.Activity[participant[0]]
+        ] 
+          },
+          {
+            label: participant[1],
             fill:true,
-            backgroundColor: "rgba(255, 99, 113,0.2)",
-            boarderColor:"rgba(70,190,198,1)",
+            backgroundColor: "rgba(170, 255, 113,0.2)",
+            boarderColor:"rgba(80,90,198,1)",
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
-            data:[17,82,50,14,27] 
-        }
-        ] */
-    },
+            data:[
+            analyze_result.data.workability.User[participant[1]],
+            analyze_result.data.cooperation.User[participant[1]],
+            analyze_result.data.realtion.User[participant[1]],
+            analyze_result.data.participation.User[participant[1]],
+            analyze_result.data.participant_activity.Activity[participant[1]]
+        ] 
+          },
+          {
+            label: participant[2],
+            fill:true,
+            backgroundColor: "rgba(255, 170, 113,0.2)",
+            boarderColor:"rgba(100,90,198,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[2]],
+            analyze_result.data.cooperation.User[participant[2]],
+            analyze_result.data.realtion.User[participant[2]]],
+            analyze_result.data.participation.User[participant[2]],
+            analyze_result.data.participant_activity.Activity[participant[2]]
+        
+          },
+          {
+            label: participant[3],
+            fill:true,
+            backgroundColor: "rgba(255, 170, 113,0.2)",
+            boarderColor:"rgba(90,100,198,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[3]],
+            analyze_result.data.cooperation.User[participant[3]],
+            analyze_result.data.realtion.User[participant[3]],
+            analyze_result.data.participation.User[participant[3]],
+            analyze_result.data.participant_activity.Activity[participant[3]]
+        ] 
+          },
+          {
+            label: participant[4],
+            fill:true,
+            backgroundColor: "rgba(205, 170, 10,0.2)",
+            boarderColor:"rgba(100,90,98,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[4]],
+            analyze_result.data.cooperation.User[participant[4]],
+            analyze_result.data.realtion.User[participant[4]],
+            analyze_result.data.participation.User[participant[4]],
+            analyze_result.data.participant_activity.Activity[participant[4]]
+        ] 
+          },
+          {
+            label: participant[5],
+            fill:true,
+            backgroundColor: "rgba(25, 17, 113,0.2)",
+            boarderColor:"rgba(100,90,18,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[5]],
+            analyze_result.data.cooperation.User[participant[5]],
+            analyze_result.data.realtion.User[participant[5]],
+            analyze_result.data.participation.User[participant[5]],
+            analyze_result.data.participant_activity.Activity[participant[5]]
+        ] 
+          },
+          {
+            label: participant[6],
+            fill:true,
+            backgroundColor: "rgba(215, 170, 133,0.2)",
+            boarderColor:"rgba(100,90,198,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[6]],
+            analyze_result.data.cooperation.User[participant[6]],
+            analyze_result.data.realtion.User[participant[6]],
+            analyze_result.data.participation.User[participant[6]],
+            analyze_result.data.participant_activity.Activity[participant[6]]
+        ] 
+          },
+          {
+            label: participant[7],
+            fill:true,
+            backgroundColor: "rgba(255, 172, 113,0.2)",
+            boarderColor:"rgba(105,95,198,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[7]],
+            analyze_result.data.cooperation.User[participant[7]],
+            analyze_result.data.realtion.User[participant[7]],
+            analyze_result.data.participation.User[participant[7]],
+            analyze_result.data.participant_activity.Activity[participant[7]]
+        ] 
+          },
+          {
+            label: participant[8],
+            fill:true,
+            backgroundColor: "rgba(255, 170, 113,0.2)",
+            boarderColor:"rgba(200,9,19,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[8]],
+            analyze_result.data.cooperation.User[participant[8]],
+            analyze_result.data.realtion.User[participant[8]],
+            analyze_result.data.participation.User[participant[8]],
+            analyze_result.data.participant_activity.Activity[participant[8]]
+        ] 
+          },
+          {
+            label: participant[9],
+            fill:true,
+            backgroundColor: "rgba(202, 130, 113,0.2)",
+            boarderColor:"rgba(30,90,198,1)",
+            pointBorderColor:"#fff",
+            pointBackgroundColor:"rgba(70,190,198,1.2)",
+            data:[
+            analyze_result.data.workability.User[participant[9]],
+            analyze_result.data.cooperation.User[participant[9]],
+            analyze_result.data.realtion.User[participant[9]],
+            analyze_result.data.participation.User[participant[9]],
+            analyze_result.data.participant_activity.Activity[participant[9]]
+        ] 
+          }
+    ]
+},
     options:{
         responsive:false,
         tooltips: {
