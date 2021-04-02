@@ -40,18 +40,7 @@
 <form action="http://www.afyproject2.ml/analyze" method="post" enctype="multipart/form-data">
     <span class="box">
         <input type="file" name= "text" id="file" class="int_file" accept="text/plain" />
-        <input type="submit" onclick="Fetch()"> 
-        <script type="text/javascript">
-            let analyze;
-            function Fetch(){
-                fetch("http://www.afyproject2.ml/analyze")
-                .then((resp)=>analyze=resp.json())
-                .then(function(data){
-                    console.log("data");
-                }
-                .catch(err=>console.log(err))
-                )};
-        </script>
+        <input type="submit">
     </span>
 </form>
 
@@ -71,5 +60,7 @@
 <script src = "../js/autoinfo.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src = "../js/navbar.js"></script>
+<script data-main="../scripts/script.js" src="../scripts/require.js"></script>
+
 </body>
 </html>

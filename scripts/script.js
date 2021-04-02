@@ -1,34 +1,22 @@
-/*카카오 분석일
- {movies.map(movie => (
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                year={movie.year}
-                                title={movie.title}
-                                summary={movie.summary}
-                                poster={movie.medium_cover_image}
-                                genres={movie.genres}
-                                */
-
 
 
 const fs=require('fs');
-var filename ='https://www.afyproject2.ml//home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
+var filename ='/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
 
-var analyze_result_file = readFileSync(filename, 'utf8');
+var analyze_result_file = fs.readFileSync(filename);
   analyze_result_string = analyze_result_file.toString();
   analyze_result = JSON.parse(analyze_result_string);
 
-
+console.log(analyze_result);
 document.getElementById("now_date").innerHTML="분석일자 :"+new Date().toLocaleString();
-let start_date=analyze_result.data.date_data.start;
-let end_date=analyze_result.data.date_data.end;
+let start_date=analyze_result.date_data.start;
+let end_date=analyze_result.date_data.end;
 document.getElementById("duration").innerHTML="분석기간 :"+start_date+"~"+end_date;
 
-let participant=Object.values(analyze_result.data.participant_list);
+let participant=Object.values(analyze_result.participant_list);
 document.getElementById("participant").innerHTML="단톡방 인원: "+participant.length+"개";
 
-let chat=Object.values(analyze_result.data.participant_chat.Chat_counts); /*각자 채팅 횟수*/
+let chat=Object.values(analyze_result.participant_chat.Chat_counts); /*각자 채팅 횟수*/
 let total_chat=0;
 chat.forEach(function(item){total_chat+=Number(item);})
 document.getElementById("total_chat").innerHTML="전체 채팅횟수: "+total_chat+"개";
@@ -40,7 +28,7 @@ document.getElementById("chat_content").innerHTML="대화주제 :"
 
 /* 3번째: 채팅 빈도수 그래프 */
 let labels1=participant; 
-let datas1=Object.values(fin_data.data.participant_chat.Chat_counts); /*각자 채팅 횟수*/
+let datas1=Object.values(analyze_result.participant_chat.Chat_counts); /*각자 채팅 횟수*/
 function getRandomColor() {
     let colors=new Array();
     for(let i=0;i<labels1.length;i++){
@@ -111,11 +99,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[0]],
-            analyze_result.data.cooperation.User[participant[0]],
-            analyze_result.data.realtion.User[participant[0]],
-            analyze_result.data.participation.User[participant[0]],
-            analyze_result.data.participant_activity.Activity[participant[0]]
+            analyze_result.workability.User[participant[0]],
+            analyze_result.cooperation.User[participant[0]],
+            analyze_result.relation.User[participant[0]],
+            analyze_result.participation.User[participant[0]],
+            analyze_result.participant_activity.Activity[participant[0]]
         ] 
           },
           {
@@ -126,11 +114,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[1]],
-            analyze_result.data.cooperation.User[participant[1]],
-            analyze_result.data.realtion.User[participant[1]],
-            analyze_result.data.participation.User[participant[1]],
-            analyze_result.data.participant_activity.Activity[participant[1]]
+            analyze_result.workability.User[participant[1]],
+            analyze_result.cooperation.User[participant[1]],
+            analyze_result.relation.User[participant[1]],
+            analyze_result.participation.User[participant[1]],
+            analyze_result.participant_activity.Activity[participant[1]]
         ] 
           },
           {
@@ -141,12 +129,12 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[2]],
-            analyze_result.data.cooperation.User[participant[2]],
-            analyze_result.data.realtion.User[participant[2]]],
-            analyze_result.data.participation.User[participant[2]],
-            analyze_result.data.participant_activity.Activity[participant[2]]
-        
+            analyze_result.workability.User[participant[2]],
+            analyze_result.cooperation.User[participant[2]],
+            analyze_result.relation.User[participant[2]],
+            analyze_result.participation.User[participant[2]],
+            analyze_result.participant_activity.Activity[participant[2]]
+            ]
           },
           {
             label: participant[3],
@@ -156,11 +144,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[3]],
-            analyze_result.data.cooperation.User[participant[3]],
-            analyze_result.data.realtion.User[participant[3]],
-            analyze_result.data.participation.User[participant[3]],
-            analyze_result.data.participant_activity.Activity[participant[3]]
+            analyze_result.workability.User[participant[3]],
+            analyze_result.cooperation.User[participant[3]],
+            analyze_result.realtion.User[participant[3]],
+            analyze_result.participation.User[participant[3]],
+            analyze_result.participant_activity.Activity[participant[3]]
         ] 
           },
           {
@@ -171,11 +159,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[4]],
-            analyze_result.data.cooperation.User[participant[4]],
-            analyze_result.data.realtion.User[participant[4]],
-            analyze_result.data.participation.User[participant[4]],
-            analyze_result.data.participant_activity.Activity[participant[4]]
+            analyze_result.workability.User[participant[4]],
+            analyze_result.cooperation.User[participant[4]],
+            analyze_result.relation.User[participant[4]],
+            analyze_result.participation.User[participant[4]],
+            analyze_result.participant_activity.Activity[participant[4]]
         ] 
           },
           {
@@ -186,11 +174,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[5]],
-            analyze_result.data.cooperation.User[participant[5]],
-            analyze_result.data.realtion.User[participant[5]],
-            analyze_result.data.participation.User[participant[5]],
-            analyze_result.data.participant_activity.Activity[participant[5]]
+            analyze_result.workability.User[participant[5]],
+            analyze_result.cooperation.User[participant[5]],
+            analyze_result.relation.User[participant[5]],
+            analyze_result.participation.User[participant[5]],
+            analyze_result.participant_activity.Activity[participant[5]]
         ] 
           },
           {
@@ -201,11 +189,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[6]],
-            analyze_result.data.cooperation.User[participant[6]],
-            analyze_result.data.realtion.User[participant[6]],
-            analyze_result.data.participation.User[participant[6]],
-            analyze_result.data.participant_activity.Activity[participant[6]]
+                analyze_result.workability.User[participant[6]],
+                analyze_result.cooperation.User[participant[6]],
+                analyze_result.relation.User[participant[6]],
+                analyze_result.participation.User[participant[6]],
+                analyze_result.participant_activity.Activity[participant[6]]
         ] 
           },
           {
@@ -216,11 +204,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[7]],
-            analyze_result.data.cooperation.User[participant[7]],
-            analyze_result.data.realtion.User[participant[7]],
-            analyze_result.data.participation.User[participant[7]],
-            analyze_result.data.participant_activity.Activity[participant[7]]
+                analyze_result.workability.User[participant[7]],
+                analyze_result.cooperation.User[participant[7]],
+                analyze_result.relation.User[participant[7]],
+                analyze_result.participation.User[participant[7]],
+                analyze_result.participant_activity.Activity[participant[7]]
         ] 
           },
           {
@@ -231,11 +219,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[8]],
-            analyze_result.data.cooperation.User[participant[8]],
-            analyze_result.data.realtion.User[participant[8]],
-            analyze_result.data.participation.User[participant[8]],
-            analyze_result.data.participant_activity.Activity[participant[8]]
+                analyze_result.workability.User[participant[8]],
+                analyze_result.cooperation.User[participant[8]],
+                analyze_result.relation.User[participant[8]],
+                analyze_result.participation.User[participant[8]],
+                analyze_result.participant_activity.Activity[participant[8]]
         ] 
           },
           {
@@ -246,11 +234,11 @@ let chart2 = new Chart(myChart2,{
             pointBorderColor:"#fff",
             pointBackgroundColor:"rgba(70,190,198,1.2)",
             data:[
-            analyze_result.data.workability.User[participant[9]],
-            analyze_result.data.cooperation.User[participant[9]],
-            analyze_result.data.realtion.User[participant[9]],
-            analyze_result.data.participation.User[participant[9]],
-            analyze_result.data.participant_activity.Activity[participant[9]]
+                analyze_result.workability.User[participant[9]],
+                analyze_result.cooperation.User[participant[9]],
+                analyze_result.relation.User[participant[9]],
+                analyze_result.participation.User[participant[9]],
+                analyze_result.participant_activity.Activity[participant[9]]
         ] 
           }
     ]
@@ -269,7 +257,7 @@ let chart2 = new Chart(myChart2,{
 });
 
 /*채팅 길이 그래프(1)*/
-let labels3 = participant;
+let labels3 = analyze_result.participation;
 let datas3 = [190,130,120,140,170,80];
 let colors3=getRandomColor();
 let myChart3 = document.getElementById("myChart3").getContext('2d');
