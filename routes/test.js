@@ -16,29 +16,28 @@ router.get("/", async (req, res) => {
   };
   PythonShell.run("kakao.py", options, (err, data) => {
     if (err) throw err;
-    result = {};
-    result = JSON.parse(data);
-    const analyze_result = {
-      time_all_chat: result.time_all_chat,
-      chat_per_day: result.chat_per_day_result,
-      time_member_chat: result.time_member_chat,
-      cooperation: result.cooperation,
-      participation: result.participation,
-      member_chat_interval: result.member_chat_interval,
-      all_member_chat_interval: result.all_member_chat_interval,
-      word_cloud: result.word_cloud,
-      relation: result.relation,
-      workability: result.workability,
-      date_data: result.date_data,
-      participant_num: result.participant_num,
-      participant_list: result.participant_list,
-      participant_chat: result.participant_chat,
-      participant_activity: result.participant_activity,
-      chat_counts_percentage: result.chat_counts_percentage,
-    };
+    const = result = JSON.parse(data);
+    // const analyze_result = {
+    //   time_all_chat: result.time_all_chat,
+    //   chat_per_day: result.chat_per_day_result,
+    //   time_member_chat: result.time_member_chat,
+    //   cooperation: result.cooperation,
+    //   participation: result.participation,
+    //   member_chat_interval: result.member_chat_interval,
+    //   all_member_chat_interval: result.all_member_chat_interval,
+    //   word_cloud: result.word_cloud,
+    //   relation: result.relation,
+    //   workability: result.workability,
+    //   date_data: result.date_data,
+    //   participant_num: result.participant_num,
+    //   participant_list: result.participant_list,
+    //   participant_chat: result.participant_chat,
+    //   participant_activity: result.participant_activity,
+    //   chat_counts_percentage: result.chat_counts_percentage,
+    // };
     return res
       .status(200)
-      .send(defaultRes.successTrue(statusCode.OK, "통신성공", analyze_result));
+      .send(defaultRes.successTrue(statusCode.OK, "통신성공", result));
   });
 
   //spawn 사용방법 - 둘다 가능(txt파일 어떻게 읽어들일지)

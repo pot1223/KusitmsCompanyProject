@@ -36,10 +36,12 @@ router.post("/", upload.single("text"), async (req, res) => {
       "/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json",
       data
     );
+    
+    const result = JSON.parse(data)
 
     return res
       .status(200)
-      .send(defaultRes.successTrue(statusCode.OK, "분석성공"));
+      .send(defaultRes.successTrue(statusCode.OK, "분석성공", result));
   });
 });
 
