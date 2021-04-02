@@ -91,20 +91,20 @@ let chart1 = new Chart(myChart1, {
 /*4번째: 오각형 그래프 */
 function getDataset(){
   let datasets=new Array();
-  for(let i=0;i<data2.length;i++){
+  for(let i=0;i<datas1.length;i++){
      let data= {
-          label: data2[0],
+          label: datas1[0],
           fill:true,
           backgroundColor: getColor(),
           boarderColor:"rgba(100,90,198,1)",
           pointBorderColor:"#fff",
           pointBackgroundColor:"rgba(70,190,198,1.2)",
           data:[
-          analyze_result.data.workability.User[data2[i]],
-          analyze_result.data.cooperation.User[data2[i]],
-          analyze_result.data.relation.User[data2[i]],
-          analyze_result.data.participation.User[data2[i]],
-          analyze_result.data.participant_activity.Activity[data2[i]]
+          analyze_result.data.workability.User[datas1[i]],
+          analyze_result.data.cooperation.User[datas1[i]],
+          analyze_result.data.relation.User[datas1[i]],
+          analyze_result.data.participation.User[datas1[i]],
+          analyze_result.data.participant_activity.Activity[datas1[i]]
       ] 
         };
         datasets.push(data);
