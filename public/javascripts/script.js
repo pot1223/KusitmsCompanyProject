@@ -30,7 +30,7 @@ chat.forEach(function (item) {
 document.getElementById("total_chat").innerHTML =
   "전체 채팅횟수: " + total_chat + "개";
 
-let contents_arr = analyze_result.data.word_cloud.word;
+let contents_arr = analyze_result.word_cloud.word;
 document.getElementById("chat_content").innerHTML =
   "대화주제 :" +
   contents_arr[0] +
@@ -95,8 +95,8 @@ let chart1 = new Chart(myChart1, {
          pointBackgroundColor:"#ddd",
          data:
              analyze_result.relation.User[participant_list[0]],
-             analyze_result.data.workabillity.User[participant_list[0]],
-             analyze_result.data.participant.User[participant_list[0]],
+             analyze_result.workabillity.User[participant_list[0]],
+             analyze_result.participant.User[participant_list[0]],
              analyze_result.participant_activity.Activity[participant_list[0]]
  }]
      return datasets;
