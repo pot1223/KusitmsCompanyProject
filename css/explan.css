@@ -10,14 +10,49 @@
     font-size: 20px;
 }
 
-#textfile {
+.int_file {
     margin-top: 5%;
     margin-left: 40%;
+    margin-bottom: 5%;
+    font-size: 15px;
 }
 
-.but {
-    color: white;
+.submit {
     text-align: center;
-    margin-top: 5%;
     margin-bottom: 5%;
+    margin-left: 47%;
+    border-radius: 50px;
+    border-color: #ffaa71;
+    background-color: #ffaa71;
+    color:white;
+    padding:20px;
+
 }
+
+
+
+  .box input[type="file"] {
+    border: 0;
+    border-radius: 50px;
+    border-color: #eff3f7;
+    font-size:16px;
+    background: white;
+    box-shadow:5px 5px 10px black;
+    width:350px;
+    outline: none; 
+}
+
+
+::-webkit-file-upload-button{
+    color:white;
+    background:#ff3469 ;
+    padding:20px;
+    border:none;
+    border-radius: 50px;
+    box-shadow: 1px 0 1px 1px #ffaa71;
+    outline:none;
+}
+::-webkit-file-upload-button:hover{
+    background: #ffaa71 50%;
+}
+
