@@ -1,6 +1,6 @@
 
 
-const fs=require('fs');
+const fs=require('fs');//
 var filename ='/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
 
 var analyze_result_file = fs.readFileSync(filename);
