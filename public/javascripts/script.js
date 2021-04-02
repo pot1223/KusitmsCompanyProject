@@ -104,6 +104,7 @@ let chart2 = new Chart(myChart2, {
   type: "radar",
   data: {
     labels: labels2,
+    //5명밖에 없는 경우에 6, 7, 8은 undefined가 떠서 for문으로 하거나 해야할것같아요!
     datasets: [
       {
         label: participant[0],
