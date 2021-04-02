@@ -1,11 +1,8 @@
 var filename = "http://www.afyproject2.ml/test";
-
 var analyze_result_file = await fetch(filename).then(function (response) {
   return response.json();
 });
-
 const analyze_result = analyze_result_file.data;
-
 console.log(analyze_result.participant_list);
 document.getElementById("now_date").innerHTML =
   "분석일자 :" + new Date().toLocaleString();
@@ -13,7 +10,6 @@ let start_date = analyze_result.date_data.start;
 let end_date = analyze_result.date_data.end;
 document.getElementById("duration").innerHTML =
   "분석기간 :" + start_date + "~" + end_date;
-
 let participant = Object.values(analyze_result.participant_list);
 document.getElementById("participant").innerHTML =
   "단톡방 인원: " + participant.length + "개";
@@ -26,7 +22,6 @@ chat.forEach(function (item) {
 });
 document.getElementById("total_chat").innerHTML =
   "전체 채팅횟수: " + total_chat + "개";
-
 let contents_arr = analyze_result.word_cloud.word;
 document.getElementById("chat_content").innerHTML =
   "대화주제 :" +
@@ -37,7 +32,6 @@ document.getElementById("chat_content").innerHTML =
   contents_arr[2] +
   "," +
   contents_arr[3];
-
 /* 3번째: 채팅 빈도수 그래프 */
 let labels1 = participant;
 let datas1 = Object.values(
@@ -55,7 +49,6 @@ function getRandomColor() {
 }
 let colors1 = getRandomColor();
 let myChart1 = document.getElementById("myChart").getContext("2d");
-
 let chart1 = new Chart(myChart1, {
   type: "doughnut",
   data: {
@@ -69,7 +62,6 @@ let chart1 = new Chart(myChart1, {
   },
   options: {
     responsive: false,
-
     tooltips: {
       mode: "nearest",
     },
@@ -80,7 +72,6 @@ let chart1 = new Chart(myChart1, {
   },
 });
 /*4번째: 오각형 그래프 */
-
 /*function getData(index){
      datasets: [{
          label: participant[0],
@@ -287,7 +278,6 @@ let chart3 = new Chart(myChart3, {
   },
   options: {
     responsive: false,
-
     tooltips: {
       mode: "nearest",
     },
