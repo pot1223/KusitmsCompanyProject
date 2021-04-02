@@ -1,10 +1,8 @@
-const fs = requirejs('fs');
-var filename ='/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json';
-var analyze_result_file = fs.readFileSync(filename);
-var analyze_result_string = analyze_result_file.toString();
-var analyze_result = JSON.parse(analyze_result_string);
+const fs=requirejs(['fs']);
+let analyze_result_file = fs.readFileSync('/home/ubuntu/kusitms_companyPJ/routes/analyze_result.json');
+let analyze_result_string = analyze_result_file.toString();
+let analyze_result = JSON.parse(analyze_result_string);
 
-console.log(analyze_result);
 document.getElementById("now_date").innerHTML="분석일자 :"+new Date().toLocaleString();
 let start_date=analyze_result.date_data.start;
 let end_date=analyze_result.date_data.end;
